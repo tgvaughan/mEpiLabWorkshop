@@ -1,0 +1,28 @@
+* mEpiLab BEAST workshop outline
+
+** Bayesian inference and MCMC (1hr)
+   Fundamental Bayesian concepts, sampling from high-dimensional distributions.
+
+** Statistical Phylogenetics (1hr)
+   Trees, molecular evolution, tree priors.
+
+** Introduction to BEAST and its friends (1hr)
+   Overview of the tools involved, how to interact with BEAUti and the package manager.
+   
+** Skyline plots
+
+*** Technical overview (20min)
+
+*** Tutorial (1hr)
+   
+** Structured coalescent inference (Multi-type tree, BASTA?)
+
+*** Technical overview  (20min)
+
+*** Tutorial (1hr)
+
+** Bacter
+
+*** Overview (20min)
+
+*** Tutorial (1hr)
