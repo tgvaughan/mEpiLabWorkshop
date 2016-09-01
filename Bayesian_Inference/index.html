@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Bayesian Inference</title>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="workshop_theme.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="titlepage">
+          <div class="meeting">
+            mEpiLab BEAST Workshop, September 5th 2016
+          </div>
+               
+          <div class="title">
+            <h1>Bayesian Inference</h1>
+          </div>
+
+          <div class="authors">
+            Tim Vaughan
+          </div>
+
+          <div class="institution">
+            Centre for Computational Evolution<br>
+            The University of Auckland
+          </div>
+
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Probability</h2>
+          </section>
+
+          <section>
+            <h3>Logical reasoning</h3>
+
+            Deductive reasoning can be reduced to the repeated application of the following syllogisms:
+
+            <blockquote style="text-align:center">
+              if $A$ is true, then $B$ is true<br>
+              $A$ is true
+              <hr>
+              $B$ is true
+            </blockquote>
+
+            <blockquote style="text-align:center">
+              if $A$ is true, then $B$ is true<br>
+              $B$ is false
+              <hr>
+              $A$ is false
+            </blockquote>
+
+          </section>
+
+          <section>
+            <h3>A hole in logic</h3>
+
+            <blockquote style="text-align:justify">Suppose some dark night a policeman walks down a street. He
+              hears a burglar alarm, looks across the street, and sees a jewelry store with
+              a broken window. Then a gentleman wearing a mask comes crawling out of the
+              window, carrying a bag full of jewelry. The policeman decides immediately that
+              the gentleman is a thief. How does he decide this?</blockquote>
+            <div class="cite">Jaynes: Probability Theory</div>
+          </section>
+
+          <section>
+            <h3>A hole in logic</h3>
+
+            <ul>
+              <li>$A$: "the gentleman is a thief"</li>
+              <li>$B$: "the gentleman is wearing a mask and exited a broken window holding a bag of jewelry".</li>
+            </ul>
+
+            <br>
+
+            <p>The policeman seems to be applying the following weak syllogism:</p>
+            <blockquote style="text-align:center">
+              if $A$ is true, then $B$ is likely<br>
+              $B$ is true
+              <hr>
+              $A$ is likely
+            </blockquote>
+
+            <div style="text-align:center"><i>Why does his reasoning seem so sound?</i></div>
+
+          </section>
+
+          <section>
+            <h3>Developing a theory of<br>plausible reasoning</h3>
+
+            Our theory must satisfy the following requirements:
+            <ol>
+              <li>Degrees of plausibility are represented by<br>real numbers.</li>
+              <li>Require qualitative correspondence with<br>common sense.</li>
+              <li>Consistency:
+                <ol>
+                  <li>All valid reasoning routes give the same result.</li>
+                  <li>Equivalent states of knowledge must have equivalent degrees of plausibility.</li>
+                </ol>
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Probability: extended logic</h3>
+
+            <p>These requirements are enough to uniquely identify the
+            essential rules of probability theory!</p>
+
+            <blockquote style="width:100%">
+              <ul>
+                <li>The probability $P(A|B)$ is the degree of
+                plausibility of proposition $A$ given that $B$ is
+                true.</li>
+                <li>Product rule: $P(A|BC)P(B|C) = P(AB|C)$</li>
+                <li>Sum rule: $P(A|B)+P(\bar{A}|B) = 1$</li>
+              </ul>
+            </blockquote>
+
+            <p>By convention, $P(A)=0$ indicates $A$ is certainly
+            false while $P(A)=1$ means $A$ is certainly true.</p>
+
+            <div style="text-align:center;color:purple">That's it! You can now do Bayesian statistics!</div>
+          </section>
+
+          <section>
+            <h3>A word about notation</h3>
+
+            Strictly speaking, probabilities only ever concern propositions (i.e. things with true or false values):
+            <blockquote style="text-align:center">
+              <ul>
+                <li>Tim is a Cat</li>
+                <li>$N=5$</li>
+              </ul>
+            </blockquote>
+
+            <p>A statement such as $P(N)$ is therefore as meaningless as $P(\text{Tim})$.</p>
+
+            <p>However, where propositions concern the value of a variable like $N$, we often use $P(n)$
+              as shorthand for $P(N=n)$.</p>
+
+            <p>Abusing notation, this is sometimes written as $P(N)$.</p>
+          </section>
+
+          <section>
+            <h3>Frequentist definition of probability</h3>
+
+            <p>Traditionally, probability has been defined in terms of
+            relative frequencies of outcomes of repeated random
+            (weakly controlled) "experiments".</p>
+
+            <img style="float:right; width:200px" data-src="dice_freq.svg">
+
+            <div style="float:left;">
+              <ul>
+                <li>$N$: Total number of rolls.</li>
+                <li>$n_5$: Total number of 5s rolled.</li>
+                <li>$P(d=5) \equiv n_5/N$ as $N\rightarrow\infty$</li>
+              </ul>
+            </div>
+
+            <blockquote style="clear:both;width:100%">
+              There are several problems here:
+            <ol>
+              <li>Experiments are assumed to be repeatable.</li>
+              <li>Assumes that randomness is a property of the system.</li>
+            </ol>
+
+          </section>
+
+          <section>
+            <h3>Continuous hypothesis spaces</h3>
+          </section>
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Inference</h2>
+          </section>
+
+          <section>
+            <h3>What is inference?</h3>
+          </section>
+
+          <section>
+            <h3>Bent coin example</h3>
+          </section>
+
+          <section>
+            <h3>Radioactive decay example</h3>
+          </section>
+
+          <section>
+            <h3>Bayes theorem</h3>
+          </section>
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Prior Probabilities</h2>
+          </section>
+
+          <section>
+            <h3>What are prior probabilities?</h3>
+          </section>
+
+          <section>
+            <h3>Prior probabilities are necessary</h3>
+          </section>
+
+          <section>
+            <h3>Priors for continuous variables</h3>
+          </section>
+
+          <section>
+            <h3>Improper priors</h3>
+          </section>
+
+          <section>
+            <h3>Which prior is best?</h3>
+          </section>
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Summarizing uncertainty</h2>
+          </section>
+
+          <section>
+            <h3>Bayesian credible intervals</h3>
+          </section>
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Inference in practice</h2>
+          </section>
+
+          <section>
+            <h3>The curse of dimensionality</h3>
+          </section>
+
+          <section>
+            <h3>Monte Carlo methods</h3>
+          </section>
+
+          <section>
+            <h3>Rejection sampling</h3>
+          </section>
+
+          <section>
+            <h3>Markov Chain Monte Carlo</h3>
+          </section>
+
+          <section>
+            <h3>Mixing and MCMC</h3>
+          </section>
+
+          <section>
+            <h3>Alternatives to MCMC</h3>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      center: false,
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+      { src: '../reveal.js/plugin/markdown/marked.js' },
+      { src: '../reveal.js/plugin/markdown/markdown.js' },
+      { src: '../reveal.js/plugin/notes/notes.js', async: true },
+      { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../reveal.js/plugin/math/math.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>

@@ -2,6 +2,33 @@
 
 ** Bayesian inference and MCMC (1hr)
    Fundamental Bayesian concepts, sampling from high-dimensional distributions.
+   
+*** Introduction to probability
+**** The hole in logical reasoning
+**** Probability theory fills this hole
+**** Strict definition of probability
+**** Extending definition to continuous hypothesis spaces
+
+*** Inference
+**** Bent coin example
+**** Exponential decay example
+**** Bayes theorem
+     
+*** Prior probabilities
+**** Definition
+**** Necessity
+**** Prior probability densities for continuous scalar variables
+**** Which prior is best?
+     
+*** Summarizing uncertainty: Credible intervals
+
+*** Bayesian inference in practice
+**** The curse of dimensionality
+**** Monte Carlo methods
+**** Rejection sampling
+**** Markov Chain Monte Carlo
+**** Mixing and MCMC
+**** Alternatives to MCMC
 
 ** Statistical Phylogenetics (1hr)
    Trees, molecular evolution, tree priors.
