@@ -83,7 +83,7 @@
           </section>
 
           <section>
-            <h3>A hole in logic</h3>
+            <h3>A hole in logic?</h3>
 
             <ul>
               <li>$A$: "the gentleman is a thief"</li>
@@ -402,6 +402,34 @@
 
           <section>
             <h3>Improper priors</h3>
+
+            <blockquote class="alert" style="width:100%">Hold on, how can we choose a
+              value of $c$ in $f(\lambda)=c$ so that $f(\lambda)$ is
+              normalized on the domain of $\lambda$?<br>
+            </blockquote>
+
+            <img style="width:100%" data-src="uniform_improper.png">
+
+            <blockquote style="width:100%">We can't! This $f(\lambda)$
+            is not a true probability density.</blockquote>
+
+            It turns out that this is usually okay, <b>provided the
+              likelihood causes the posterior to be normalizable</b>.
+          </section>
+
+          <section>
+            <h3>Improper priors (continued)</h3>
+            However, for weak data sets improper priors can cause problems.
+            It is important to remember that
+            <ul>
+              <li>One almost never knows absolutely nothing.</li>
+              <li>Upper and lower bounds can almost always be placed.</li>
+              <li>The log-normal prior can be considered a normalizable replacement for
+              the $1/x$ prior.</li>
+            </ul>
+
+            <img style="width:100%" data-src="lognormal.png">
+
           </section>
 
           <section>
@@ -424,6 +452,21 @@
 
           <section>
             <h3>Bayesian credible intervals</h3>
+
+            For probability distributions/densities of a single
+            variable, it is often useful to summarize the uncertainty
+            in the value using an interval. For Bayesians this is the
+            95% credible interval:
+
+            <img style="width:100%" data-src="credible_interval.png">
+
+            Here the interval is $[0.41, 0.91]$.
+
+            <aside class="notes">
+              What happens when distributions are bimodal?
+              Watch significant figures.
+              In general there is no strict frequency interpretation.
+            </aside>
           </section>
         </section>
 
@@ -433,28 +476,165 @@
           </section>
 
           <section>
-            <h3>The curse of dimensionality</h3>
+            <h3>What's so difficult about this?</h3>
+
+            <blockquote style="text-align:center">
+              One word: integration.
+            </blockquote>
+
+            Bayes' theorem has a troublesome denominator:
+            $$
+            P(\theta_M|D,M)=\frac{P(D|\theta_M,M)P(\theta_M|M)}{P(D|M)}
+            $$
+            The quantity $P(D|M)$ is a normalizing constant, which is the
+            result of integrating the numerator over all $\theta_M$:
+            $$P(D|M)=\int P(D|\theta_M,M)P(\theta_M|M)d\theta_M$$
+
+            <ul>
+              <li>Unless you're <b>very</b> lucky, you can't do this
+              integral with pen and paper.</li>
+              <li>If $\theta_M$ has many dimensions, you can't even do
+              this using a computer.</li>
+            </ul>
           </section>
 
           <section>
             <h3>Monte Carlo methods</h3>
+
+            <div style="text-align:center">
+              <img style="width:80%" data-src="MonteCarlo.jpg">
+            </div>
+          </section>
+
+          <section>
+            <h3>Monte Carlo methods</h3>
+
+            <div style="text-align:center">
+              <img style="width:80%" data-src="casino.jpg">
+            </div>
+          </section>
+
+          <section>
+            <h3>Monte Carlo methods</h3>
+
+            <p style="padding-top:50px">In our context, Monte Carlo
+              methods are algorithms which produce random samples of
+              values in order to characterize a probability
+              distribution over those values.</p>
+
+            <p style="padding-top:50px">Usually, the algorithms we
+              deal with seek to produce an arbitrary number of
+              independent samples of $\theta_M$ drawn from the
+              posterior distribution $P(\theta_M|D,M)$.</p>
           </section>
 
           <section>
             <h3>Rejection sampling</h3>
+
+            One of the simplest Monte Carlo methods for drawing from
+            arbitrary distributions is the rejection sampler:
+
+            <div style="width:800px;height:400px;position:relative;margin:0 auto">
+              <img class="fragment current-visible" data-src="rejection_sampling12.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling11.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling10.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling9.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling8.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling7.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling6.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling5.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling4.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling3.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="rejection_sampling2.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment" data-src="rejection_sampling1.svg"
+                   style="position:absolute;top:0;left:0">
+            </div>
+
+            <p class="fragment">
+            Reject <span style="color:red">red</span>
+            samples, <span style="color:green">green</span> samples are
+            drawn from target distribution.</p>
           </section>
 
           <section>
-            <h3>Markov Chain Monte Carlo</h3>
+            <h3>The curse of dimensionality</h3>
+
+            <img style="float:right;width:40%" data-src="curse.svg">
+
+            <blockquote style="float:left;width:50%">
+              In general, the fraction of an enclosing distribution
+              occupied by a target distribution diminishes rapidly
+              as the number of dimensions increases.
+            </blockquote>
+
+            <p style="clear:both;text-align:center;margin-top:100px">
+              This means that for problems with large numbers of unknown parameters,
+              rejection sampling will only ever produce rejects!</p>
           </section>
 
           <section>
-            <h3>Mixing and MCMC</h3>
+            <h3>The Metropolis-Hastings algorithm</h3>
+
+            This algorithm produces samples from a distribution $f(x)$ by generating a
+            random walk over possible values of $x$.
+
+            <div style="width:800px;height:400px;position:relative;margin:0 auto">
+              <img class="fragment current-visible" data-src="MCMC1.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="MCMC2.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="MCMC3.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="MCMC4.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment current-visible" data-src="MCMC5.svg"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment" data-src="MCMC6.svg"
+                   style="position:absolute;top:0;left:0">
+            </div>
+
+            <ol class="fragment">
+              <li> walk explores mostly high probability areas</li>
+              <li>algorithm <b>does not require normalized $f(x)$</b></li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Result of MCMC algorithm</h3>
+
+            <br>
+            <br>
+
+            <div style="width:800px;height:400px;position:relative;margin:0 auto">
+              <img class="current-visible" data-src="MCMC_trace.png"
+                   style="position:absolute;top:0;left:0">
+              <img class="fragment" data-src="MCMC_density.png"
+                   style="position:absolute;top:0;left:0">
+              </div>
+          </section>
+
+          <section>
+            <h3>Convergence and Mixing</h3>
           </section>
 
           <section>
             <h3>Alternatives to MCMC</h3>
           </section>
+        </section>
+
+        <section>
+          <h2>Further Reading</h2>
         </section>
       </div>
     </div>
@@ -471,11 +651,6 @@
       center: false,
 
       transition: 'convex',
-
-      math: {
-      mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
-      config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-      },
 
       // More info https://github.com/hakimel/reveal.js#dependencies
       dependencies: [

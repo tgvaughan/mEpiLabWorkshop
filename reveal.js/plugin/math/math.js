@@ -18,7 +18,12 @@ var RevealMath = window.RevealMath || (function(){
 				inlineMath: [['$','$'],['\\(','\\)']] ,
 				skipTags: ['script','noscript','style','textarea','pre']
 			},
-			skipStartupTypeset: true
+		    skipStartupTypeset: true,
+                    "HTML-CSS": {
+                        preferredFont: null
+                        //preferredFont: "STIX"
+                        //preferredFont: "TeX"
+                    }
 		});
 
 		// Typeset followed by an immediate reveal.js layout since
