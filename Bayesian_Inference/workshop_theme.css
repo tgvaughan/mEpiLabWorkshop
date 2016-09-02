@@ -178,7 +178,7 @@ body {
   text-align: left;
 }
 
-.reveal blockquote .alert {
+.reveal blockquote.alert {
     background: red;
 }
 
