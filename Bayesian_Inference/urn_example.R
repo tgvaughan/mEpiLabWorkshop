@@ -125,3 +125,40 @@ legend("topleft", inset=0.05,
        lwd=2, lty=c(1,2))
 
 dev.off()
+
+
+png("MCMC_slow_trace.png", width=800, height=300, pointsize=20)
+par(mar=c(3,3,1,1), mgp=c(2,0.5,0))
+
+trace <- mcmc(0.1, 0.05, logTarget, steps=2000)
+
+plot(1:length(trace), trace, 'l', col='purple',
+     xlab="Algorithm steps",
+     ylab=expression(x))
+
+dev.off()
+
+
+png("MCMC_convergence_testing.png", width=400, height=400, pointsize=20)
+par(mar=c(3,3,1,1), mgp=c(2,0.5,0))
+
+trace <- list()
+trace[[1]] <- mcmc(0.1, 0.2, logTarget, steps=10000)
+trace[[2]] <- mcmc(0.1, 0.2, logTarget, steps=10000)
+trace[[3]] <- mcmc(0.1, 0.2, logTarget, steps=10000)
+trace[[4]] <- mcmc(0.1, 0.2, logTarget, steps=10000)
+
+plot(density(trace[[1]][-(1:1000)]), lwd=2, col='blue',
+     xlab="x", main="", ylim=c(0,3))
+lines(density(trace[[2]][-(1:1000)]), lwd=2, col='blue')
+lines(density(trace[[3]][-(1:1000)]), lwd=2, col='blue')
+lines(density(trace[[4]][-(1:1000)]), lwd=2, col='blue')
+lines(x, exp(logTarget(x)), lwd=2, lty=2, col='red')
+dev.off()
+
+
+png("MCMC_acf.png", width=800, height=300, pointsize=20)
+par(mar=c(3,3,1,1), mgp=c(2,0.5,0))
+
+plot(acf(trace[[1]][-(1:1000)]), main="")
+dev.off()

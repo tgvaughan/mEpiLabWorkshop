@@ -626,15 +626,86 @@
 
           <section>
             <h3>Convergence and Mixing</h3>
+
+            <ul>
+              <li>Adjacent MCMC samples for $x$ are <b>correlated</b>.</li>
+              <li>In the limit of an infinite number of steps between a pair
+              of samples, they will be independent draws.</li>
+              <li>The first state of the MCMC chain is chosen
+              arbitrarily - it is not a draw from the
+              posterior.</li>
+            </ul>
+
+            <img style="width:100%" data-src="MCMC_burnin.svg">
           </section>
 
           <section>
-            <h3>Alternatives to MCMC</h3>
+            <h3>What determines convergence and mixing rates?</h3>
+
+            <ul>
+              <li>Convergence is affected by the starting state.</li>
+              <li>Convergence and mixing are affected by</li>
+              <ul>
+                <li>Proposals: how big are the steps in the random
+                walk? What direction are they in?</li>
+                <li>The target density: multiple modes cause havoc!</li>
+              </ul>
+            </ul>
+
+          </section>
+
+          <section>
+            <h3>Assessing Convergence</h3>
+
+            The tried and true method for assessing convergence is to
+            compare the results of distinct chains generated from
+            independently selected initial conditions.
+
+            <img style="float:right;width:45%" data-src="MCMC_convergence_testing.png">
+
+            <div style="width:50%;margin-top:50px">
+              <ul>
+                <li>Once satisfied, chains can be combined.</li>
+                <li>Can run at the same time on a cluster.</li>
+                <li>Doesn't necessarily prove convergence!</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>Assessing Mixing</h3>
+
+            The key to assessing mixing is the autocorrelation function of the chain states:
+            <img style="width:100%" data-src="MCMC_acf.png">
+
+            The number of steps required for this function to decay to
+            within the vicinity of 0 is the gap between effectively independent samples,
+            $\tau$.
+          </section>
+
+          <section>
+            <h3>Assessing Mixing (continued)</h3>
+
+            If $N$ is the total number of MCMC samples, we then define
+            $$N_{\text{eff}}=\frac{N}{\tau}$$
+            to be the <b>effective sample size</b> (ESS).
+
+            <p>The ESS is a rough <i>estimate</i> of the number of actual
+            samples a chain has generated.</p>
+
+            <blockquote>You should really only
+            consider the order of magnitude of the ESS.</blockquote>
           </section>
         </section>
 
         <section>
           <h2>Further Reading</h2>
+
+          <div class="figure" style="width:45%;float:left;text-align:center;margin-top:50px">
+            <img style="height:400px" data-src="itiala_cover.png">
+          </div> <div style="width:45%;float:right;text-align:center;margin-top:50px">
+            <img style="height:400px" data-src="jaynes.jpg">
+          </div>
         </section>
       </div>
     </div>
