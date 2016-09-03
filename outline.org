@@ -32,16 +32,90 @@
 
 ** Statistical Phylogenetics (1hr)
    Trees, molecular evolution, tree priors.
+   
+*** Phylogenetic Trees
+    
+**** What is a phylogenetic tree?
+**** A short history
+**** Trees and Data
+**** Species and Gene trees
+**** The Neutrality Assumption
+
+*** Modelling Molecular Evolution
+    
+**** The Molecular Clock
+**** Stochastic Processes
+**** The Jukes-Cantor Model
+**** Distances
+**** The Tree Likelihood
+**** ML inference (e.g. PhyML)
+**** Outgroups
+**** The HKY Model
+**** The GTR Model
+**** Glaring omissions
+     Indels, gene duplication, recombination
+
+*** Modelling Genealogies
+
+**** The tree prior
+**** Many different models
+**** Models for species trees
+**** Gene trees: the coalescent
+**** Gene trees: birth-death-sampling
+**** Specialized models
+    
+*** Bayesian Phylogenetic Inference
+    
+**** Bringing everything together
+**** Where is our data?
+**** MCMC on tree space
+**** Identifiability
+**** Improper Priors
 
 ** Introduction to BEAST and its friends (1hr)
    Overview of the tools involved, how to interact with BEAUti and the package manager.
    
+*** BEAST
+**** What is BEAST?
+**** Why BEAST 2?
+**** BEAST components
+     
+*** BEAST packages
+**** The Package Manager
+**** Keeping BEAST up-to-date
+
+*** BEAUti
+**** Loading data into BEAUti
+**** Site models
+**** Branch models
+**** Tree models
+**** Partitions
+**** Linking models
+**** Priors
+**** MCMC Panel
+**** Operator weights
+
+*** Running BEAST
+**** From the desktop
+**** From the console
+**** Using BEAGLE
+**** Interpreting displayed output
+**** Output files
+
+*** Tracer
+
+*** DensiTree
+
+*** TreeAnnotator
+
+*** FigTree
+
 ** Skyline plots
 
 *** Technical overview (20min)
 
 *** Tutorial (1hr)
-   
+    
 ** Structured coalescent inference (Multi-type tree, BASTA?)
 
 *** Technical overview  (20min)

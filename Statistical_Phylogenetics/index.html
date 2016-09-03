@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Bayesian Inference</title>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="workshop_theme.css">
+    <!--link rel="stylesheet" href="../../../talks/web_based/WinterBootcamp/wb_theme.css"-->
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="titlepage">
+          <div class="meeting">
+            mEpiLab BEAST Workshop, September 5th 2016
+          </div>
+               
+          <div class="title">
+            <h1>Statistical Phylogenetics</h1>
+          </div>
+
+          <div class="authors">
+            Tim Vaughan
+          </div>
+
+          <div class="institution">
+            Centre for Computational Evolution<br>
+            The University of Auckland
+          </div>
+
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Phylogenetic Trees</h2>
+          </section>
+
+          <section>
+            <h3>What is a Phylogenetic Tree?</h3>
+          </section>
+          <section>
+            <h3>A short history</h3>
+          </section>
+          <section>
+            <h3>Trees and Data</h3>
+          </section>
+          <section>
+            <h3>Species and Gene Trees</h3>
+          </section>
+          <section>
+            <h3>The Neutrality Assumption</h3>
+          </section>
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Modelling Molecular Evolution</h2>
+          </section>
+
+          <section>
+            <h3>The Molecular Clock</h3>
+          </section>
+          <section>
+            <h3>Stochastic Processes</h3>
+          </section>
+          <section>
+            <h3>The Jukes-Cantor Model</h3>
+          </section>
+          <section>
+            <h3>Distances</h3>
+          </section>
+          <section>
+            <h3>The Tree Likelihood</h3>
+          </section>
+          <section>
+            <h3>Maximum Likelihood Inference</h3>
+          </section>
+          <section>
+            <h3>Outgroups</h3>
+          </section>
+          <section>
+            <h3>The HKY Model</h3>
+          </section>
+          <section>
+            <h3>The GTR Model</h3>
+          </section>
+          <section>
+            <h3>Glaring Omissions</h3>
+          </section>
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Modelling Genealogies</h2>
+          </section>
+
+          <section>
+            <h3>The Tree Prior</h3>
+          </section>
+          <section>
+            <h3>Many different models</h3>
+          </section>
+          <section>
+            <h3>Models for species trees</h3>
+          </section>
+          <section>
+            <h3>Gene trees: the coalescent</h3>
+          </section>
+          <section>
+            <h3>Gene trees: birth-death</h3>
+          </section>
+          <section>
+            <h3>Specialized models</h3>
+          </section>
+        </section>
+
+        <section>
+          <section class="center">
+            <h2>Bayesian Phylogenetic Inference</h2>
+          </section>
+
+          <section>
+            <h3>Bringing everything together</h3>
+          </section>
+
+          <section>
+            <h3>Where is our data?</h3>
+          </section>
+
+          <section>
+            <h3>MCMC on tree space</h3>
+          </section>
+
+          <section>
+            <h3>Identifiability</h3>
+          </section>
+
+          <section>
+            <h3>Improper Priors</h3>
+          </section>
+        </section>
+      </div>
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      center: false,
+
+      transition: 'convex',
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+      { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../reveal.js/plugin/notes/notes.js', async: true },
+      { src: '../reveal.js/plugin/math/math.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>
