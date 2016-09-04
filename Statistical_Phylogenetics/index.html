@@ -487,7 +487,15 @@
             $\lambda$, death rate $\mu$ and sampling parameters $\rho$
             and $\psi$, while the Yule prior only uses $\lambda$.</p>
           </section>
+
           <section>
+            <h3>Example Yule tree</h3>
+
+            <br>
+
+            <div style="text-align:center">
+              <img height="450" data-src="yule_tree.svg">
+            </div>
           </section>
 
           <section>
@@ -506,7 +514,7 @@
             </div>
 
             <ul>
-              <li class="fragment">Probability of coalescence in single generation  $\sim\binom{k}{2}\frac{1}{N}$</li>
+              <li class="fragment">Probability of coalescence in single generation  $\sim\binom{k}{2}\frac{1}{2N}$</li>
               <li class="fragment">Geometric distribution between coalescence events.</li>
             </ul>
           </section>
@@ -515,16 +523,33 @@
 
             <br>
 
-            <img data-src="coalescent_tree.svg" height="450"> <br>
+            <div style="text-align:center">
+              <img data-src="coalescent_tree.svg" height="450"> <br>
+            </div>
           </section>
 
-
-
           <section>
-            <h3>Gene trees: birth-death</h3>
-          </section>
-          <section>
-            <h3>Specialized models</h3>
+            <h3>Phylodynamic models</h3>
+
+            <blockquote>
+              The term <i>phylodynamics</i> was introduced by Grenfell
+              and others <span class="cite">[Science, 2004]</span> to
+              describe the interaction between evolution and
+              epidemiological dynamics and its effect on the phylogenies
+              of rapidly evolving pathogens.
+            </blockquote>
+
+            Some models which exploit this interaction to learn about
+            epidemics using genetic data are becoming common:
+            <ul>
+              <li>BDSKY <span class="cite">[Stadler et al., 2013]</li>
+              <li>BDSIR <span class="cite">[K&uuml;hnert et al., 2014]</li>
+              <li>Coalescent-based models <span class="cite">[Volz et al., 2009, 2012]</span></li>
+              <li>Exact models <span class="cite">[Leventhal et al., 2014]</li>
+            </ul>
+            <p>Allow inference of $R_0$ and other parameters, including
+            prevalence curves.</p>
+
           </section>
         </section>
 
@@ -535,10 +560,40 @@
 
           <section>
             <h3>Bringing everything together</h3>
+
+            <p>The goal of phylogenetic inference is generally to
+              learn about the phylogeny of a set of sampled genetic
+              sequences.</p>
+
+            <p class="fragment">As Bayesians we accomplish this by seeking to characterise the joint posterior:
+              $$P(T,\sigma,\theta|D) = \frac{1}{P(D)} P(D|T,\sigma)P(T|\theta,l)P(\sigma)P(\theta)$$</p>
+
+            <ul class="fragment">
+              <li>$P(D|T,\sigma)$ is the <i>tree likelihood</i></li>
+              <li>$P(T|\theta,l)$ is the <i>tree prior</i></li>
+              <li>$P(\sigma)$ and $P(\theta)$  are the <i>parameter priors</i></li>
+            </ul>
+
+            <br><br>
+
+            <i class="fragment">We simultaneously learn about the tree and the parameters!</i>
           </section>
 
           <section>
             <h3>Where is our data?</h3>
+
+            Let's look again at the full posterior density:
+            <blockquote style="margin-top:50px">
+              $$P(T,\sigma,\theta|D) = \frac{1}{P(D)} P(D|T,\sigma)P(T|\theta,l)P(\sigma)P(\theta)$$
+            </blockquote>
+
+            <ul style="margin-top:50px">
+              <li>Where is the likelihood?</li>
+              <li>Related: where is our data?</li>
+            </ul>
+
+            <p style="text-align:center;color:purple;margin-top:50px">Labels such as "likelihood" and "prior" are in some sense artificial, and can become ambiguous for complex models.</p>
+
           </section>
 
           <section>
