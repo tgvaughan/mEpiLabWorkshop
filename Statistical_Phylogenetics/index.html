@@ -147,6 +147,32 @@
 
             We are thus concerned only with <b>neutral</b> evolution.
           </section>
+
+          <section>
+            <h3>The phylogenetic inference problem</h3>
+
+            <blockquote>Given a set of $M$ sampled molecular
+              sequences, infer the evolutionary
+              relationships between them.</blockquote>
+
+            <img class="fragment" data-src="primate_align.png"/>
+
+            <p class="fragment">In a sense this is a just a clustering problem...</p>
+
+          </section>
+
+          <section>
+            <h3>The phylogenetic inference problem</h3>
+
+            <div style="text-align:center">
+              <img data-src="primate_nj.svg" height="450"/>
+            </div>
+
+            <ul>
+              <li class="fragment">Edge lengths may represent genetic distance  or time (if the molecular clock rate is known).</li>
+              <li class="fragment">How can we do better than this?</li>
+            </ul>
+          </section>
         </section>
 
         <section>
@@ -155,26 +181,167 @@
           </section>
 
           <section>
-            <h3>The Molecular Clock</h3>
+            <h3>Genetic drift</h3>
+
+            <blockquote>The random fluctuation in the frequency of
+              a trait or allele (gene variant) distribution within a
+              population due to the demographic process.</blockquote>
+
+
+            <img class="fragment" style="vertical-align: middle; width: 400px; margin-right: 20px" data-src="drift1.svg"/>
+            <img class="fragment" style="vertical-align: middle; width: 400px" data-src="drift2.svg"/>
           </section>
+
           <section>
-            <h3>Stochastic Processes</h3>
+            <h3>Modelling neutral genetic drift</h3>
+
+            <!-- Wright-Fisher model -->
+            <div style="position:relative; width:800px; height:400px; margin:0 auto;">
+              <img class="fragment current-visible" width="800" data-src="WF5.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+              <img class="fragment current-visible" width="800" data-src="WF4.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+              <img class="fragment current-visible" width="800" data-src="WF3.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+              <img class="fragment current-visible" width="800" data-src="WF2.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+              <img class="fragment" width="800" data-src="WF.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+            </div>
+            <ul>
+              <li class="fragment">All individuals descend from a common ancestor at some point in the past.</li>
+              <li class="fragment">Probability that the descendants of a given individual "take over" is $1/2N$.</li>
+            </ul>
+
           </section>
+
+          <section>
+            <h3>The molecular clock hypothesis</h3>
+
+            <br>
+
+            <ol>
+              <li class="fragment">In a single generation a new allele is produced in the population with probability $2N\mu$.</li>
+              <li class="fragment">Any individual gene eventually becomes fixed in the population with probability $1/2N$.
+            </ol>
+
+            <br>
+            <br>
+
+            <blockquote class="fragment">
+              The probability per generation that a new allele fixes
+              is therefore $\mu$: independent of population size!
+            </blockquote>
+
+            <br>
+
+            <blockquote class="alert fragment">This is not exactly true.</blockquote>
+          </section>
+
+          <section>
+            <h3>Markov chains</h3>
+
+            <p>Suppose we have a sequence of discrete variables $M_1,M_2,M_3\ldots$ where each variable
+            can take values between 1 and $V$. The probability
+            distribution over the first value is $P(M_1=m)\equiv p_1(m)$.</p>
+
+
+            <p>Subsequent probability distributions are related by:</p>
+            $$
+            p_{i+1}(m')=\sum_{m=0}^{V}T_{mm'}p_{i}(m)
+            $$
+
+            That is,
+            $$
+            p_2(1) = T_{11}p_1(1) + T_{21}p_1(2) + \ldots + T_{V1}p_1(V)
+            $$
+
+            <p style="text-align:center;color:purple;margin-top:20px">This
+            is a stochastic process called a <b>Markov chain</b> and
+            $T_{mm'}$ is called the <b>transition matrix</b>.</p>
+          </section>
+
+          <section>
+            <h3>Substitution Models</h3>
+
+            Substitution is modeled as a (continuous time) Markov chain:
+
+            <img style="width:100%;box-shadow:none" data-src="subst_model.svg">
+
+            <blockquote>Almost the only difference between different substitution
+            models is the transition matrix.</blockquote>
+
+            Usually the average rate of substitution ($\mu$) is factored out of the
+            transition matrix.
+          </section>
+
           <section>
             <h3>The Jukes-Cantor Model</h3>
+
+            The Jukes-Cantor model is the simplest (and least realistic) substitution model.
+
+            <blockquote style="text-align:center;margin-top:50px">
+              $T_{ij}$ is constant for all $i \neq $j.
+            </blockquote>
+
+            <ul style="margin-top:50px">
+              <li>Point mutations are equally likely between any pair of nucleotides.</li>
+              <li>No difference between transitions and transversions.</li>
+              <li>Equilibrium base frequencies are uniform.</li>
+            </ul>
+
+            <p style="margin-top:20px">Despite this, Jukes-Cantor is
+            sometimes useful due to its simplicity.</p>
+            
           </section>
           <section>
-            <h3>Distances</h3>
+            <h3>Distances and Saturation</h3>
+
+            Under a Jukes-Cantor model, the probability over character states as a function of time can be computed exactly:
+
+            $$
+            p_{diff}(t)=\frac{3}{4} - \frac{3}{4}e^{-\frac{4}{3}t}
+            $$
+
+            <div style="width:80%;text-align:center">
+              <img style="width:80%" data-src="jc_probs.png">
+            </div>
+
+            Can be used to estimate distance: $\hat{t}=-\frac{3}{4}\log(1-\frac{4}{3}q)$.
           </section>
+
           <section>
             <h3>The Tree Likelihood</h3>
+
+            <blockquote>The tree likelihood $P(D|T,\sigma)$ is the probability that the observed sequences were produced by evolving a single ancestral sequence down $T$ under a neutral substitution model with parameters $\sigma$.</blockquote>
+
+            <img class="fragment" data-src="likelihood.svg" width="800">
+
+            <p class="fragment">There is an efficient algorithm for computing this
+              (summing over all possible ancestral sequences):
+              <b>Felsenstein's pruning algorithm</b>.</p>
           </section>
+
+
           <section>
             <h3>Maximum Likelihood Inference</h3>
+
+            <blockquote>Maximum likelihood phylogenetic inference methods produce a
+              single <b>point estimate</b> of the phylogenetic tree
+              by seeking to maximize $P(D|T,\sigma)$ with respect
+              to the tree $T$.</blockquote>
+            
+            <ul>
+              <li>Popular implementations of this method include PhyML and RAxML.</li>
+              <li>These methods are <i>fast</i>.</li>
+              <li>Point estimates provide no direct indication of the quality
+              of the estimate - forced to used ad hoc methods such as
+              bootstrap to remedy this.</li>
+              <li>As substiution models used in practice are
+              reversible, ML can only infer unrooted trees.</li>
+            </ul>
           </section>
-          <section>
-            <h3>Outgroups</h3>
-          </section>
+
           <section>
             <h3>The HKY Model</h3>
           </section>

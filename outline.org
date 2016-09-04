@@ -95,6 +95,7 @@
 **** MCMC Panel
 **** Operator weights
 
+
 *** Running BEAST
 **** From the desktop
 **** From the console
@@ -117,11 +118,13 @@
 
 *** Tutorial (1hr)
     
+
 ** Structured coalescent inference (Multi-type tree, BASTA?)
 
 *** Technical overview  (20min)
 
 *** Tutorial (1hr)
+
 
 ** Bacter
 
