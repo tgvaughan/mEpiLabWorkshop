@@ -53,6 +53,7 @@
           <section>
             <h3>What is a Phylogenetic Tree?</h3>
 
+            <div class="fragment">
             <blockquote style="text-align:justify;margin-top:100px">
               A phylogenetic tree is a branching diagram showing
               the inferred evolutionary relationships among various
@@ -61,6 +62,7 @@
               or genetic characteristics.
             </blockquote>
             <div class="cite">Wikipedia</div>
+            </div>
           </section>
 
           <section>
@@ -105,10 +107,10 @@
 
             <div style="width:50%">
               <ul>
-                <li>Trees are inferred from characteristics of the
+                <li class="fragment">Trees are inferred from characteristics of the
                 entities they relate.</li>
-                <li>Characteristics are now often genetic, but may also be phenotypic.</li>
-                <li>The true tree constrains the distribution of these characteristics.</li>
+                <li class="fragment">Characteristics are now often genetic, but may also be phenotypic.</li>
+                <li class="fragment">The true tree constrains the distribution of these characteristics.</li>
               </ul>
             </div>
           </section>
@@ -122,14 +124,14 @@
 
             <div style="width:50%">
               <ul>
-                <li>Many phylogenetic trees can be classed as
+                <li class="fragment">Many phylogenetic trees can be classed as
                 either <b>species</b> or <b>gene</b> trees.</li>
-                <li>Gene trees are nested within species trees.</li>
-                <li>While species trees constrain gene trees, topologies may differ</li>
+                <li class="fragment">Gene trees are nested within species trees.</li>
+                <li class="fragment">While species trees constrain gene trees, topologies may differ</li>
               </ul>
             </div>
 
-            <p style="color:purple;text-align:center;margin-top:50px">Very similar
+            <p class="fragment" style="color:purple;text-align:center;margin-top:50px">Very similar
             relationship between transmission trees and pathogen
             trees.</p>
           </section>
@@ -141,11 +143,11 @@
             the shape of the tree affects the distribution of
             characters, <b>but not the other way around</b>.
 
-            <div class="figure" style="text-align:center">
+            <div class="figure fragment" style="text-align:center">
               <img style="width:75%" data-src="neutrality_tree.svg">
             </div>
 
-            We are thus concerned only with <b>neutral</b> evolution.
+            <p class="fragment">We are thus concerned only with <b>neutral</b> evolution.</p>
           </section>
 
           <section>
@@ -246,17 +248,17 @@
             distribution over the first value is $P(M_1=m)\equiv p_1(m)$.</p>
 
 
-            <p>Subsequent probability distributions are related by:</p>
+            <p class="fragment">Subsequent probability distributions are related by:
             $$
             p_{i+1}(m')=\sum_{m=0}^{V}T_{mm'}p_{i}(m)
-            $$
+            $$</p>
 
-            That is,
+            <p class="fragment">That is,
             $$
             p_2(1) = T_{11}p_1(1) + T_{21}p_1(2) + \ldots + T_{V1}p_1(V)
-            $$
+            $$</p>
 
-            <p style="text-align:center;color:purple;margin-top:20px">This
+            <p class="fragment" style="text-align:center;color:purple;margin-top:20px">This
             is a stochastic process called a <b>Markov chain</b> and
             $T_{mm'}$ is called the <b>transition matrix</b>.</p>
           </section>
@@ -266,13 +268,13 @@
 
             Substitution is modeled as a (continuous time) Markov chain:
 
-            <img style="width:100%;box-shadow:none" data-src="subst_model.svg">
+            <img class="fragment" style="width:100%;box-shadow:none" data-src="subst_model.svg">
 
-            <blockquote>Almost the only difference between different substitution
+            <blockquote class="fragment">Almost the only difference between different substitution
             models is the transition matrix.</blockquote>
 
-            Usually the average rate of substitution ($\mu$) is factored out of the
-            transition matrix.
+            <p class="fragment">Usually the average rate of substitution ($\mu$) is factored out of the
+            transition matrix.</p>
           </section>
 
           <section>
@@ -280,17 +282,17 @@
 
             The Jukes-Cantor model is the simplest (and least realistic) substitution model.
 
-            <blockquote style="text-align:center;margin-top:50px">
+            <blockquote class="fragment" style="text-align:center;margin-top:50px">
               $T_{ij}$ is constant for all $i \neq $j.
             </blockquote>
 
             <ul style="margin-top:50px">
-              <li>Point mutations are equally likely between any pair of nucleotides.</li>
-              <li>No difference between transitions and transversions.</li>
-              <li>Equilibrium base frequencies are uniform.</li>
+              <li class="fragment">Point mutations are equally likely between any pair of nucleotides.</li>
+              <li class="fragment">No difference between transitions and transversions.</li>
+              <li class="fragment">Equilibrium base frequencies are uniform.</li>
             </ul>
 
-            <p style="margin-top:20px">Despite this, Jukes-Cantor is
+            <p class="fragment" style="margin-top:20px">Despite this, Jukes-Cantor is
             sometimes useful due to its simplicity.</p>
             
           </section>
@@ -303,11 +305,11 @@
             p_{diff}(t)=\frac{3}{4} - \frac{3}{4}e^{-\frac{4}{3}t}
             $$
 
-            <div style="width:80%;text-align:center">
+            <div class="fragment" style="width:80%;text-align:center">
               <img style="width:80%" data-src="jc_probs.png">
             </div>
 
-            Can be used to estimate distance: $\hat{t}=-\frac{3}{4}\log(1-\frac{4}{3}q)$.
+            <p class="fragment">Can be used to estimate distance: $\hat{t}=-\frac{3}{4}\log(1-\frac{4}{3}q)$.</p>
           </section>
 
           <section>
@@ -332,12 +334,12 @@
               to the tree $T$.</blockquote>
             
             <ul>
-              <li>Popular implementations of this method include PhyML and RAxML.</li>
-              <li>These methods are <i>fast</i>.</li>
-              <li>Point estimates provide no direct indication of the quality
+              <li class="fragment">Popular implementations of this method include PhyML and RAxML.</li>
+              <li class="fragment">These methods are <i>fast</i>.</li>
+              <li class="fragment">Point estimates provide no direct indication of the quality
               of the estimate - forced to used ad hoc methods such as
               bootstrap to remedy this.</li>
-              <li>ML does not allow the incorporation of available prior information.</li>
+              <li class="fragment">ML does not allow the incorporation of available prior information.</li>
             </ul>
           </section>
 
@@ -358,9 +360,9 @@
             <div class="cite">Hasegawa, Kishino, Yano (1985)</div>
 
             <ul style="margin-top:50px">
-              <li>Non-equlibrium base frequencies.</li>
-              <li>Includes transition/transversion rate ratio $\kappa$.</li>
-              <li>The simplest sensible model of neutral DNA evolution.</li>
+              <li class="fragment">Non-equlibrium base frequencies.</li>
+              <li class="fragment">Includes transition/transversion rate ratio $\kappa$.</li>
+              <li class="fragment">The simplest sensible model of neutral DNA evolution.</li>
             </ul>
 
           </section>
@@ -381,10 +383,10 @@
             <div class="cite">Simon Tavar&eacute;, 1986</div>
 
             <ul style="margin-top:50px">
-              <li>The most general time-reversible model.</li>
-              <li>Ten parameters in total (9 if the average
+              <li class="fragment">The most general time-reversible model.</li>
+              <li class="fragment">Ten parameters in total (9 if the average
               substiution rate is factored out).</li>
-              <li>All other time-reversible models are a special case of this.</li>
+              <li class="fragment">All other time-reversible models are a special case of this.</li>
 
             </ul>
 
@@ -395,16 +397,16 @@
             <blockquote style="text-align:center;margin-top:50px">How great are these
             fancy models of substitution?</blockquote>
 
-            <blockquote class="alert" style="text-align:center;margin-top:50px">Not
+            <blockquote class="fragment alert" style="text-align:center;margin-top:50px">Not
             great!  There are many omissions!</blockquote>
 
             <ul style="margin-top:50px">
-              <li>Don't model insertions/deletions.</li>
-              <li>Don't model recombination.</li>
-              <li>No allowance for rate variation between sites or over tree.</li>
+              <li class="fragment">Don't model insertions/deletions.</li>
+              <li class="fragment">Don't model recombination.</li>
+              <li class="fragment">No allowance for rate variation between sites or over tree.</li>
             </ul>
 
-            <p>There are several ways to address the last two points, some
+            <p class="fragment">There are several ways to address the last two points, some
             of which are implemented in BEAST.</p>
 
           </section>
@@ -451,14 +453,14 @@
             alignment.</blockquote>
 
             <ul>
-              <li>The tree prior is where much of the diversity in Bayesian phylogenetics resides.</li>
-              <li>Choosing different tree priors allows analyses to be tailored to a huge variety of different scenarios including:
+              <li class="fragment">The tree prior is where much of the diversity in Bayesian phylogenetics resides.</li>
+              <li class="fragment">Choosing different tree priors allows analyses to be tailored to a huge variety of different scenarios including:
                 <ul>
-                  <li>macroevolution,</li>
-                  <li>within-population evolution,</li>
-                  <li>pathogen evolution,</li>
-                  <li>transmission tree inference,</li>
-                  <li>et cetera!</li>
+                  <li class="fragment">macroevolution,</li>
+                  <li class="fragment">within-population evolution,</li>
+                  <li class="fragment">pathogen evolution,</li>
+                  <li class="fragment">transmission tree inference,</li>
+                  <li class="fragment">et cetera!</li>
                 </ul>
               </li>
             </ul>
@@ -474,15 +476,15 @@
             <div style="width:60%">
               Species trees are usually modelled using (piecewise) constant-rate birth processes such as:
               <ul>
-                <li>The Yule model (pure birth)<br> <span class="cite">[Yule, 1924]</span></li>
-                <li>The more general birth-death sampling model
+                <li class="fragment">The Yule model (pure birth)<br> <span class="cite">[Yule, 1924]</span></li>
+                <li class="fragment">The more general birth-death sampling model
                 <span class="cite">[Stadler, 2010]</li>
 
-                <li>The fossilized birth-death model <span class="cite">[Heath, 2014]</span> directly fossil data</li>
+                <li class="fragment">The fossilized birth-death model <span class="cite">[Heath, 2014]</span> directly fossil data</li>
               </ul>
             </div>
 
-            <p>
+            <p class="fragment">
             The BDS tree prior is parameterized by a birth rate
             $\lambda$, death rate $\mu$ and sampling parameters $\rho$
             and $\psi$, while the Yule prior only uses $\lambda$.</p>
@@ -531,7 +533,7 @@
           <section>
             <h3>Phylodynamic models</h3>
 
-            <blockquote>
+            <blockquote class="fragment">
               The term <i>phylodynamics</i> was introduced by Grenfell
               and others <span class="cite">[Science, 2004]</span> to
               describe the interaction between evolution and
@@ -539,15 +541,15 @@
               of rapidly evolving pathogens.
             </blockquote>
 
-            Some models which exploit this interaction to learn about
-            epidemics using genetic data are becoming common:
+            <p class="fragment" style="margin-bottom:0px">Some models which exploit this interaction to learn about
+            epidemics using genetic data are becoming common:</p>
             <ul>
-              <li>BDSKY <span class="cite">[Stadler et al., 2013]</li>
-              <li>BDSIR <span class="cite">[K&uuml;hnert et al., 2014]</li>
-              <li>Coalescent-based models <span class="cite">[Volz et al., 2009, 2012]</span></li>
-              <li>Exact models <span class="cite">[Leventhal et al., 2014]</li>
+              <li class="fragment">BDSKY <span class="cite">[Stadler et al., 2013]</li>
+              <li class="fragment">BDSIR <span class="cite">[K&uuml;hnert et al., 2014]</li>
+              <li class="fragment">Coalescent-based models <span class="cite">[Volz et al., 2009, 2012]</span></li>
+              <li class="fragment">Exact models <span class="cite">[Leventhal et al., 2014]</li>
             </ul>
-            <p>Allow inference of $R_0$ and other parameters, including
+            <p class="fragment" style="margin-top:0px;line-spacing:1em">Allow inference of $R_0$ and other parameters, including
             prevalence curves.</p>
 
           </section>
@@ -583,16 +585,16 @@
             <h3>Where is our data?</h3>
 
             Let's look again at the full posterior density:
-            <blockquote style="margin-top:50px">
+            <blockquote class="fragment" style="margin-top:50px">
               $$P(T,\sigma,\theta|D) = \frac{1}{P(D)} P(D|T,\sigma)P(T|\theta,l)P(\sigma)P(\theta)$$
             </blockquote>
 
             <ul style="margin-top:50px">
-              <li>Where is the likelihood?</li>
-              <li>Related: where is our data?</li>
+              <li class="fragment">Where is the likelihood?</li>
+              <li class="fragment">Related: where is our data?</li>
             </ul>
 
-            <p style="text-align:center;color:purple;margin-top:50px">Labels such as "likelihood" and "prior" are in some sense artificial, and can become ambiguous for complex models.</p>
+            <p class="fragment" style="text-align:center;color:purple;margin-top:50px">Labels such as "likelihood" and "prior" are in some sense artificial, and can become ambiguous for complex models.</p>
 
           </section>
 
@@ -613,12 +615,15 @@
           <section>
             <h3>MCMC on tree space</h3>
 
-            Our posterior is a probability distribution over trees, so our MCMC algorithm must be able to explore <i>tree space</i>.  (Much harder than exploring the real number line!)
+            <p class="fragment">Our posterior is a probability distribution over trees, so
+            our MCMC algorithm must be able to explore <i>tree
+            space</i>.  (Much harder than exploring the real number
+            line!)</p>
 
-            <div style="text-align:center">
-              <img style="width:50%" data-src="tree_moves.png">
+              <div class="figure fragment" style="text-align:center">
+                <img style="width:50%" data-src="tree_moves.png">
+                <div class="caption">Example tree proposals used in BEAST.</div>
             </div>
-            <p>Example tree proposals used in BEAST.</p>
             
           </section>
 
@@ -628,16 +633,16 @@
             parameter, the parameter is said to be non-identifiable.
 
             <ul>
-              <li>A classic example is the clock rate $\mu$ under a
+              <li class="fragment">A classic example is the clock rate $\mu$ under a
                 coalescent model when only contemporaneous sequences are
                 available. In this case only the product $\mu N$ can be
                 inferred.</li>
 
-              <li>More subtle examples are found in the structured coalescent
+              <li class="fragment">More subtle examples are found in the structured coalescent
               and Clonal Origin models to be discussed this afternoon.</li>
             </ul>
 
-            <p style="color:purple">In Bayesian analyses
+            <p class="fragment" style="color:purple">In Bayesian analyses
             non-identifiability is not always a big problem: the worst
             that can happen is that a parameter is sampled from it's
             prior...</p>
@@ -650,7 +655,7 @@
             that prior is improper! In this case, the posterior will
             also be improper.</blockquote>
 
-            <p style="margin-top:50px">Happily, there is a strong
+            <p class="fragment" style="margin-top:50px">Happily, there is a strong
             signature of an improper posterior: a variable in the MCMC
             state chain will steadily grow, eventually exceeding the
             maximum floating point value allowed by the computer.  If
