@@ -597,16 +597,79 @@
           </section>
 
           <section>
-            <h3>MCMC on tree space</h3>
+            <h3>How many trees are there?</h3>
+
+            <div class="figure inline" style="width:550px">
+              <img data-src="howmanytrees.png" style="height:550px"> 
+              <div class="cite">&nbsp;</div>
+            </div>
+
+            <div class="figure inline" style="width:400px">
+              <img data-src="numtrees.png" style="height:550px"> 
+              <div class="cite">Felsenstein, 2004</div>
+            </div>
           </section>
 
           <section>
-            <h3>Identifiability</h3>
+            <h3>MCMC on tree space</h3>
+
+            Our posterior is a probability distribution over trees, so our MCMC algorithm must be able to explore <i>tree space</i>.  (Much harder than exploring the real number line!)
+
+            <div style="text-align:center">
+              <img style="width:50%" data-src="tree_moves.png">
+            </div>
+            <p>Example tree proposals used in BEAST.</p>
+            
+          </section>
+
+          <section>
+            <h3>Non-identifiability</h3>
+            When the data are not informative for a particular
+            parameter, the parameter is said to be non-identifiable.
+
+            <ul>
+              <li>A classic example is the clock rate $\mu$ under a
+                coalescent model when only contemporaneous sequences are
+                available. In this case only the product $\mu N$ can be
+                inferred.</li>
+
+              <li>More subtle examples are found in the structured coalescent
+              and Clonal Origin models to be discussed this afternoon.</li>
+            </ul>
+
+            <p style="color:purple">In Bayesian analyses
+            non-identifiability is not always a big problem: the worst
+            that can happen is that a parameter is sampled from it's
+            prior...</p>
           </section>
 
           <section>
             <h3>Improper Priors</h3>
+
+            <blockquote class="alert" style="margin-top:50px">...which can be catastrophic if
+            that prior is improper! In this case, the posterior will
+            also be improper.</blockquote>
+
+            <p style="margin-top:50px">Happily, there is a strong
+            signature of an improper posterior: a variable in the MCMC
+            state chain will steadily grow, eventually exceeding the
+            maximum floating point value allowed by the computer.  If
+            this happens, it is highly likely that the marginal
+            posterior of the parameter in question is not
+            normalizable.</p<
+
           </section>
+        </section>
+
+        <section>
+          <h2>Further reading</h2>
+
+          <div class="figure" style="width:45%;float:left;text-align:center;margin-top:50px">
+            <img style="height:400px" data-src="InferringPhylogenies.jpg">
+          </div> <div style="width:45%;float:right;text-align:center;margin-top:50px">
+            <img style="height:400px" data-src="beast_book_cover.jpeg">
+          </div>
+        </section>
         </section>
       </div>
       </div>
