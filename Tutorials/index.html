@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>BEAST Tutorials</title>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../workshop_theme.css">
+    <!--link rel="stylesheet" href="../../../talks/web_based/WinterBootcamp/wb_theme.css"-->
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="titlepage">
+          <div class="meeting">
+            mEpiLab BEAST Workshop, September 5th 2016
+          </div>
+               
+          <div class="title">
+            <h1>BEAST Tutorials</h1>
+          </div>
+
+          <div class="authors">
+            Tim Vaughan
+          </div>
+
+          <div class="institution">
+            Centre for Computational Evolution<br>
+            The University of Auckland
+          </div>
+
+        </section>
+
+        <section class="center">
+          <h2>Tutorial 1: Skyline Plots</h2>
+
+          <blockquote style="margin-top:100px">
+            <ol>
+              <li>Download tutorial from<br>
+                <a href="http://tgvaughan.github.io/mEpiLabWorkshop/Tutorials/SkylineTutorial.zip">tgvaughan.github.io/mEpiLabWorkshop<br>
+                  /Tutorials/SkylineTutorial.zip</a></li>
+              <li>Extract the contents of this archive.</li>
+              <li>Open the file Skyline.pdf with a PDF viewer.</li>
+              <li>Start the tutorial!</li>
+            </ol>
+          </blockquote>
+        </section>
+
+        <section class="center">
+          <h2>Tutorial 2: The Structured Coalescent</h2>
+
+          <blockquote style="margin-top:100px">
+            <ol>
+              <li>Locate the tutorial at<br>
+                <a href="https://github.com/tgvaughan/MultiTypeTree/wiki/Beginner's-Tutorial-(short-version)">github.com/tgvaughan/MultiTypeTree<br>
+                  /Beginner's-Tutorial-(short-version)</a></li>
+              <li>Start the tutorial!</li>
+            </ol>
+          </blockquote>
+        </section>
+
+        <section class="center">
+          <h2>Tutorial 3: Bacter</h2>
+
+          <blockquote style="margin-top:100px">
+            <ol>
+              <li>Open the Bacter documentation page at<br>
+                <a href="http://bacter.readthedocs.io/">bacter.readthedocs.io</a></li>
+              <li>Follow the Getting Stared guide.</li>
+              <li>Start the tutorial!</li>
+            </ol>
+          </blockquote>
+        </section>
+
+      </div>
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      center: false,
+
+      transition: 'convex',
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+      { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../reveal.js/plugin/notes/notes.js', async: true },
+      { src: '../reveal.js/plugin/math/math.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>
