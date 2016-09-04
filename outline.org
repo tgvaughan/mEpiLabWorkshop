@@ -71,7 +71,7 @@
 **** MCMC on tree space
 **** Identifiability
 **** Improper Priors
-
+     
 ** Introduction to BEAST and its friends (1hr)
    Overview of the tools involved, how to interact with BEAUti and the package manager.
    
