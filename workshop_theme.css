@@ -284,7 +284,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); }
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6); }
 
 .reveal section img.plain {
   border: 0;
@@ -300,6 +300,23 @@ body {
   border-color: #2a76dd;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
+div.figure.inline {
+    display: inline-block;
+}
+
+div.figure img {
+    margin-bottom: 0px;
+}
+
+div.figure div.cite {
+/*    position: absolute; */
+    right: 20px;
+    color: red;
+    font-size: 0.5em;
+}
+
+div.figure div.caption {
+}
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
