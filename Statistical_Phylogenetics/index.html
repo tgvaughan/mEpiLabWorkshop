@@ -337,19 +337,76 @@
               <li>Point estimates provide no direct indication of the quality
               of the estimate - forced to used ad hoc methods such as
               bootstrap to remedy this.</li>
-              <li>As substiution models used in practice are
-              reversible, ML can only infer unrooted trees.</li>
+              <li>ML does not allow the incorporation of available prior information.</li>
             </ul>
           </section>
 
           <section>
-            <h3>The HKY Model</h3>
+            <h3>The HKY Substitution Model</h3>
+
+            <blockquote>
+              Continuous time transition matrix:
+            $$
+            Q = \left(\begin{array}{cccc}
+            * & \kappa\pi_C & \pi_A & \pi_G \\
+            \kappa\pi_T & * & \pi_A & \pi_G \\
+            \pi_T & \pi_C & * & \kappa\pi_G \\
+            \pi_T & \pi_C & \kappa\pi_A & *
+            \end{array}\right)
+            $$
+            </blockquote>
+            <div class="cite">Hasegawa, Kishino, Yano (1985)</div>
+
+            <ul style="margin-top:50px">
+              <li>Non-equlibrium base frequencies.</li>
+              <li>Includes transition/transversion rate ratio $\kappa$.</li>
+              <li>The simplest sensible model of neutral DNA evolution.</li>
+            </ul>
+
           </section>
           <section>
-            <h3>The GTR Model</h3>
+            <h3>The GTR Substitution Model</h3>
+
+            <blockquote>
+              Continuous time transition matrix:
+            $$
+            Q = \left(\begin{array}{cccc}
+            * & \alpha\pi_C & \beta\pi_A & \gamma\pi_G \\
+            \alpha\pi_T & * & \delta\pi_A & \epsilon\pi_G \\
+            \beta\pi_T & \delta\pi_C & * & \eta\pi_G \\
+            \gamma\pi_T & \epsilon\pi_C & \eta\pi_A & *
+            \end{array}\right)
+            $$
+            </blockquote>
+            <div class="cite">Simon Tavar\'e, 1986</div>
+
+            <ul style="margin-top:50px">
+              <li>The most general time-reversible model.</li>
+              <li>Ten parameters in total (9 if the average
+              substiution rate is factored out).</li>
+              <li>All other time-reversible models are a special case of this.</li>
+
+            </ul>
+
           </section>
           <section>
             <h3>Glaring Omissions</h3>
+
+            <blockquote style="text-align:center;margin-top:50px">How great are these
+            fancy models of substitution?</blockquote>
+
+            <blockquote class="alert" style="text-align:center;margin-top:50px">Not
+            great!  There are many omissions!</blockquote>
+
+            <ul style="margin-top:50px">
+              <li>Don't model insertions/deletions.</li>
+              <li>Don't model recombination.</li>
+              <li>No allowance for rate variation between sites or over tree.</li>
+            </ul>
+
+            <p>There are several ways to address the last two points, some
+            of which are implemented in BEAST.</p>
+
           </section>
         </section>
 
@@ -359,17 +416,110 @@
           </section>
 
           <section>
-            <h3>The Tree Prior</h3>
+            <h3>The genealogical process</h3>
+
+            <ul>
+              <li>In the absence of selection, we can consider the
+              process of tree generation in isolation.</li>
+
+              <li class="fragment">If we are to take models of population genetics
+              seriously, there is a full true species/gene tree and it
+              is produced by a forward-in-time branching process.</li>
+
+              <li class="fragment">Since we usually only ever sample a subset of the entities in
+              this complete tree, the genealogy relating our samples
+              is constructed backward-in-time from our
+              samples.</li>
+
+              
+            <div style="position:relative; width:900px; height:150px; margin-top:20px;">
+              <img class="fragment current-visible" width="900" data-src="full_tree.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0"/>
+              <img class="fragment" width="900" data-src="sampled_tree.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0"/>
+            </div>
+
           </section>
+
           <section>
-            <h3>Many different models</h3>
+            <h3>The tree prior</h3>
+
+            <blockquote>The tree prior $P(T|\theta,l)$ is the
+            probability (density) of a tree $T$ conditional on a
+            genealogical process with parameters $\theta$ and
+            additional sample data $l$ that is not part of the
+            alignment.</blockquote>
+
+            <ul>
+              <li>The tree prior is where much of the diversity in Bayesian phylogenetics resides.</li>
+              <li>Choosing different tree priors allows analyses to be tailored to a huge variety of different scenarios including:
+                <ul>
+                  <li>macroevolution,</li>
+                  <li>within-population evolution,</li>
+                  <li>pathogen evolution,</li>
+                  <li>transmission tree inference,</li>
+                  <li>et cetera!</li>
+                </ul>
+              </li>
+            </ul>
+
           </section>
+
           <section>
             <h3>Models for species trees</h3>
+
+            <div class="figure" style="float:right;width:40%">
+              <img data-src="primate_tree.jpg">
+            </div>
+            <div style="width:60%">
+              Species trees are usually modelled using (piecewise) constant-rate birth processes such as:
+              <ul>
+                <li>The Yule model (pure birth)<br> <span class="cite">[Yule, 1924]</span></li>
+                <li>The more general birth-death sampling model
+                <span class="cite">[Stadler, 2010]</li>
+
+                <li>The fossilized birth-death model <span class="cite">[Heath, 2014]</span> directly fossil data</li>
+              </ul>
+            </div>
+
+            <p>
+            The BDS tree prior is parameterized by a birth rate
+            $\lambda$, death rate $\mu$ and sampling parameters $\rho$
+            and $\psi$, while the Yule prior only uses $\lambda$.</p>
           </section>
           <section>
-            <h3>Gene trees: the coalescent</h3>
           </section>
+
+          <section>
+            <h3>Gene trees: the coalescent</h3>
+            Arises as a limit of many models in population genetics.
+
+            <div style="position:relative; width:800px; height:450px; margin:0 auto;">
+              <img class="fragment current-visible" width="800" data-src="Coalescent.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+              <img class="fragment current-visible" width="800" data-src="Coalescent2.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+              <img class="fragment current-visible" width="800" data-src="Coalescent3.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+              <img class="fragment" width="800" data-src="Coalescent4.svg"
+                   style="margin:0px;padding:0px;position:absolute;top:0;left:0;box-shadow:none;"/>
+            </div>
+
+            <ul>
+              <li class="fragment">Probability of coalescence in single generation  $\sim\binom{k}{2}\frac{1}{N}$</li>
+              <li class="fragment">Geometric distribution between coalescence events.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Example coalescent tree</h3>
+
+            <br>
+
+            <img data-src="coalescent_tree.svg" height="450"> <br>
+          </section>
+
+
+
           <section>
             <h3>Gene trees: birth-death</h3>
           </section>

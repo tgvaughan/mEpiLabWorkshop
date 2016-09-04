@@ -190,6 +190,11 @@ body {
     font-size: smaller;
 }
 
+.reveal span.cite {
+    color: darkred;
+    font-size: 0.8em;
+}
+
 
 .reveal blockquote p:first-child,
 .reveal blockquote p:last-child {
