@@ -55,14 +55,14 @@
 
             Deductive reasoning can be reduced to the repeated application of the following syllogisms:
 
-            <blockquote style="text-align:center">
+            <blockquote class="fragment" style="text-align:center">
               if $A$ is true, then $B$ is true<br>
               $A$ is true
               <hr>
               $B$ is true
             </blockquote>
 
-            <blockquote style="text-align:center">
+            <blockquote class="fragment" style="text-align:center">
               if $A$ is true, then $B$ is true<br>
               $B$ is false
               <hr>
@@ -74,7 +74,7 @@
           <section>
             <h3>A hole in logic</h3>
 
-            <blockquote style="text-align:justify">Suppose some dark night a policeman walks down a street. He
+            <blockquote style="text-align:justify;margin-top:100px">Suppose some dark night a policeman walks down a street. He
               hears a burglar alarm, looks across the street, and sees a jewelry store with
               a broken window. Then a gentleman wearing a mask comes crawling out of the
               window, carrying a bag full of jewelry. The policeman decides immediately that
@@ -86,21 +86,21 @@
             <h3>A hole in logic?</h3>
 
             <ul>
-              <li>$A$: "the gentleman is a thief"</li>
-              <li>$B$: "the gentleman is wearing a mask and exited a broken window holding a bag of jewelry".</li>
+              <li class="fragment">$A$: "the gentleman is a thief"</li>
+              <li class="fragment">$B$: "the gentleman is wearing a mask and exited a broken window holding a bag of jewelry".</li>
             </ul>
 
             <br>
 
-            <p>The policeman seems to be applying the following weak syllogism:</p>
-            <blockquote style="text-align:center">
+            <p class="fragment">The policeman seems to be applying the following weak syllogism:</p>
+            <blockquote class="fragment" style="text-align:center">
               if $A$ is true, then $B$ is likely<br>
               $B$ is true
               <hr>
               $A$ is likely
             </blockquote>
 
-            <div style="text-align:center"><i>Why does his reasoning seem so sound?</i></div>
+            <div class="fragment" style="text-align:center"><i>Why does his reasoning seem so sound?</i></div>
 
           </section>
 
@@ -109,12 +109,12 @@
 
             Our theory must satisfy the following requirements:
             <ol>
-              <li>Degrees of plausibility are represented by<br>real numbers.</li>
-              <li>Require qualitative correspondence with<br>common sense.</li>
-              <li>Consistency:
+              <li class="fragment">Degrees of plausibility are represented by<br>real numbers.</li>
+              <li class="fragment">Require qualitative correspondence with<br>common sense.</li>
+              <li class="fragment">Consistency:
                 <ol>
-                  <li>All valid reasoning routes give the same result.</li>
-                  <li>Equivalent states of knowledge must have equivalent degrees of plausibility.</li>
+                  <li class="fragment">All valid reasoning routes give the same result.</li>
+                  <li class="fragment">Equivalent states of knowledge must have equivalent degrees of plausibility.</li>
                 </ol>
               </li>
             </ol>
@@ -126,39 +126,39 @@
             <p>These requirements are enough to uniquely identify the
             essential rules of probability theory!</p>
 
-            <blockquote style="width:100%">
+            <blockquote class="fragment" style="width:100%">
               <ul>
                 <li>The probability $P(A|B)$ is the degree of
                 plausibility of proposition $A$ given that $B$ is
                 true.</li>
-                <li>Product rule: $P(A|BC)P(B|C) = P(AB|C)$</li>
-                <li>Sum rule: $P(A|B)+P(\bar{A}|B) = 1$</li>
+                <li class="fragment">Product rule: $P(A|BC)P(B|C) = P(AB|C)$</li>
+                <li class="fragment">Sum rule: $P(A|B)+P(\bar{A}|B) = 1$</li>
               </ul>
             </blockquote>
 
-            <p>By convention, $P(A)=0$ indicates $A$ is certainly
+            <p class="fragment">By convention, $P(A)=0$ indicates $A$ is certainly
             false while $P(A)=1$ means $A$ is certainly true.</p>
 
-            <div style="text-align:center;color:purple">That's it! You can now do Bayesian statistics!</div>
+            <div class="fragment" style="text-align:center;color:purple">That's it! You can now do Bayesian statistics!</div>
           </section>
 
           <section>
             <h3>A word about notation</h3>
 
             Strictly speaking, probabilities only ever concern propositions (i.e. things with true or false values):
-            <blockquote style="text-align:center">
+            <blockquote class="fragment" style="text-align:center">
               <ul>
                 <li>Tim is a Cat</li>
-                <li>$N=5$</li>
+                <li class="fragment">$N=5$</li>
               </ul>
             </blockquote>
 
-            <p>A statement such as $P(N)$ is therefore as meaningless as $P(\text{Tim})$.</p>
+            <p class="fragment">A statement such as $P(N)$ is therefore as meaningless as $P(\text{Tim})$.</p>
 
-            <p>However, where propositions concern the value of a variable like $N$, we often use $P(n)$
+            <p class="fragment">However, where propositions concern the value of a variable like $N$, we often use $P(n)$
               as shorthand for $P(N=n)$.</p>
 
-            <p>Abusing notation, this is sometimes written as $P(N)$.</p>
+            <p class="fragment">Abusing notation, this is sometimes written as $P(N)$.</p>
           </section>
 
           <section>
@@ -168,22 +168,24 @@
             relative frequencies of outcomes of repeated random
             (weakly controlled) "experiments".</p>
 
+            <div class="fragment">
             <img style="float:right; width:200px" data-src="dice_freq.svg">
 
             <div style="float:left;">
               <ul>
                 <li>$N$: Total number of rolls.</li>
-                <li>$n_5$: Total number of 5s rolled.</li>
-                <li>$P(d=5) \equiv n_5/N$ as $N\rightarrow\infty$</li>
+                <li class="fragment">$n_5$: Total number of 5s rolled.</li>
+                <li class="fragment">$P(d=5) \equiv n_5/N$ as $N\rightarrow\infty$</li>
               </ul>
             </div>
+            </div>
 
-            <blockquote style="clear:both;width:100%">
+            <blockquote class="fragment" style="clear:both;width:100%">
               There are several problems here:
             <ol>
-              <li>Experiments are assumed to be repeatable.</li>
-              <li>Assumes that randomness is a property of the system.</li>
-              <li>Completely ignores $\sim 400$ years of physics.</li>
+              <li class="fragment">Experiments are assumed to be repeatable.</li>
+              <li class="fragment">Assumes that randomness is a property of the system.</li>
+              <li class="fragment">Completely ignores $\sim 400$ years of physics.</li>
             </ol>
 
           </section>
@@ -195,9 +197,9 @@
             measure of the plausibility of propositions <b>conditional on
             available information</b>.</p>
 
-            <p>A single proposition can therefore have multiple
+            <p class="fragment">A single proposition can therefore have multiple
             probabilities depending on the available information!</p>
-            <img style="width:100%" data-src="dice_inference.svg">
+            <img class="fragment" style="width:100%" data-src="dice_inference.svg">
           </section>
 
           <section>
@@ -205,20 +207,20 @@
 
             Propositions regarding continuous variables require special treatment.
             <ul>
-              <li>Suppose $X$ may take any value between 0 and 10.</li>
-              <li>The probability $P(X=x)$ will always be zero!</li>
-              <li>Instead, define $P(x&lt;X&lt;x+\delta) = \delta f(x)$</li>
+              <li class="fragment">Suppose $X$ may take any value between 0 and 10.</li>
+              <li class="fragment">The probability $P(X=x)$ will always be zero!</li>
+              <li class="fragment">Instead, define $P(x&lt;X&lt;x+\delta) = \delta f(x)$</li>
             </ul>
 
-            <blockquote>
+            <blockquote class="fragment">
               <ul>
                 <li>$f(x)$ is a probability <i>density</i>.</li>
-                <li>It is normalized: $\int_0^{10}f(x)dx=1$</li>
-                <li>It is positive: $f(x)\geq 0$</li>
-                <li>At a given point $f(x)$ may be $>1$!</li>
+                <li class="fragment">It is normalized: $\int_0^{10}f(x)dx=1$</li>
+                <li class="fragment">It is positive: $f(x)\geq 0$</li>
+                <li class="fragment">At a given point $f(x)$ may be $>1$!</li>
               </ul>
             </blockquote>
-            Often, $f(x)$ follows the standard rules of probability.
+            <p class="fragment">Often, $f(x)$ follows the standard rules of probability.</p>
 
           </section>
         </section>
@@ -231,34 +233,36 @@
           <section>
             <h3>What is inference?</h3>
 
-              <img style="float:right" data-src="inference.jpg">
+            <div class="fragment">
+            <img style="float:right" data-src="inference.jpg">
 
             <blockquote style="float:left">
               Inference is the act of deriving logical conclusions from premises assumed to be true.
             </blockquote>
+            </div>
 
-            <p style="clear:both">
+            <p class="fragment" style="clear:both">
             Statistical inference generalises this to situations where
             the premises are not sufficient to draw conclusions
             without uncertainty.</p>
 
-            <p style="text-align:center;color:red">What is "data"?</p>
+            <p class="fragment" style="text-align:center;color:red">What is "data"?</p>
 
           </section>
 
           <section>
             <h3>Urn example</h3>
 
-            <img style="float:right" data-src="urn.svg">
+            <img class="fragment" style="float:right" data-src="urn.svg">
             <div style="float:left;width:60%"> 
               <ul>
-                <li>An urn contains 11 balls: $N_r$ red and $11-N_r$ blue.</li>
-                <li>Suppose we remove a ball (no peeking), record its colour, then replace it.</li>
-                <li>Suppose we repeat this 2 more times, obtaining the sequence R,B,R.</li>
+                <li class="fragment">An urn contains 11 balls: $N_r$ red and $11-N_r$ blue.</li>
+                <li class="fragment">Suppose we remove a ball (no peeking), record its colour, then replace it.</li>
+                <li class="fragment">Suppose we repeat this 2 more times, obtaining the sequence R,B,R.</li>
               </ul>
             </div>
 
-            <p style="clear:both">How many of the balls in the urn are red? In other words,
+            <p class="fragment" style="clear:both">How many of the balls in the urn are red? In other words,
               what is $P(N_r|d_1=R,d_2=B,d_3=R)$?
             </p>
           </section>
@@ -268,11 +272,11 @@
             <p>Given the description of the process, it is more tractable to consider
             $$P(d_1,d_2,d_3|N_r)=P(d_3|N_r,d_1,d_2)P(d_2|N_r,d_1)P(d_1|N_r)$$</p>
 
-            <p>Knowing nothing about the internal arrangement of the balls in the urn, we must have $P(d_1|N_r)=N_r/11$.</p>
+            <p class="fragment">Knowing nothing about the internal arrangement of the balls in the urn, we must have $P(d_1|N_r)=N_r/11$.</p>
 
-            <p>In general $P(d_2|N_r,d_1)$ depends on the result of the first draw!</p>
+            <p class="fragment">In general $P(d_2|N_r,d_1)$ depends on the result of the first draw!</p>
 
-            <blockquote style="width:80%">Cheat by assuming urn is shaken between draws
+            <blockquote class="fragment" style="width:80%">Cheat by assuming urn is shaken between draws
             and we know nothing of physics, so that
             $P(d_2|N_r,d_1)=P(d_2|N_r)$.</blockquote>
           </section>
@@ -285,14 +289,14 @@
             &=N_r^2(11-N_r)/11^3
             \end{align}
 
-            Applying the product rule a couple of times yields:
-
+            <p class="fragment">Applying the product rule a couple of times yields:
             \begin{align}
             P(N_r|R,B,R)P(R,B,R)&=P(R,B,R|N_r)P(N_r)\\
             P(N_r|R,B,R)& = \frac{1}{P(R,B,R)}P(R,B,R|N_r)P(N_r)
             \end{align}
+            </p>
 
-            <p>The term $P(R,B,R)$ is a function only of the data:
+            <p class="fragment">The term $P(R,B,R)$ is a function only of the data:
             constant. The term $P(N_r)$ specifies the plausibility of
             each possible value of $N_r$ in the absence of the
             data.</p>
@@ -310,16 +314,16 @@
             <h3>Bayes theorem</h3>
 
             In answering this question we have accidentally used Bayes theorem:
-            <blockquote>
+            <blockquote class="fragment">
               $$\color{cyan}{P(\theta_M|D,M)} = \frac{\color{orange}{P(D|\theta_M,M)}\color{red}{P(\theta|M)}}{\color{green}{P(D|M)}}$$
             </blockquote>
-            Here $\theta_M$ are parameters of some model $M$ and $D$ is data assumed to be generated by that model.
+            <p class="fragment">Here $\theta_M$ are parameters of some model $M$ and $D$ is data assumed to be generated by that model.</p>
 
-            <p>The components of the equation even have names:
+            <p class="fragment">The components of the equation even have names:
               <ul>
-                <li>The <span style="color:darkcyan">posterior</span> of $\theta$: $P(\theta|D)$,</li>
-                <li>the <span style="color:orange">likelihood</span> of $\theta$: $P(D|\theta)$, and</li>
-                <li>the <span style="color:red">prior</span> of $\theta$: $P(\theta)$</li>
+                <li class="fragment">The <span style="color:darkcyan">posterior</span> of $\theta$: $P(\theta|D)$,</li>
+                <li class="fragment">the <span style="color:orange">likelihood</span> of $\theta$: $P(D|\theta)$, and</li>
+                <li class="fragment">the <span style="color:red">prior</span> of $\theta$: $P(\theta)$</li>
               </ul>
             </p>
           </section>
@@ -334,15 +338,15 @@
             <h3>What is a prior probability?</h3>
 
             A prior probability is:
-            <blockquote style="margin-top:50px"> A probability!</blockquote>
+            <blockquote class="fragment" style="margin-top:50px"> A probability!</blockquote>
 
-            <blockquote style="margin-top:50px;margin-bottom:50px">The probability of whatever you're interested in but
+            <blockquote class="fragment" style="margin-top:50px;margin-bottom:50px">The probability of whatever you're interested in but
               in the absence of possibly relevant data.</blockquote>
 
-            In principle, any two (rational) people with access to the same information should
-            specify exactly the same prior.
+            <p class="fragment">In principle, any two (rational) people with access to the same information should
+              specify exactly the same prior.</p>
 
-            <p style="text-align:center;color:red">In practice this often isn't true.</p>
+            <p class="fragment" style="text-align:center;color:red">In practice this often isn't true.</p>
           </section>
 
           <section>
@@ -350,13 +354,13 @@
 
             Isn't the need for priors a problem with the Bayesian approach?
 
-            <div style="text-align:center"><p style="font-size:2em;font-weight:bold">NO!</p></div>
+            <div class="fragment" style="text-align:center"><p style="font-size:2em;font-weight:bold">NO!</p></div>
 
-            <blockquote>
+            <blockquote class="fragment">
               <ul>
                 <li>It is not possible to do inference without making assumptions.</li>
-                <li>Priors allow previous knowledge to be incorporated.</li>
-                <li>Frequentist (and Likelihoodist) methods also use priors: it's just not clear what they are!</li>
+                <li class="fragment">Priors allow previous knowledge to be incorporated.</li>
+                <li class="fragment">Frequentist (and Likelihoodist) methods also use priors: it's just not clear what they are!</li>
               </ul>
 
             </blockquote>
@@ -370,8 +374,8 @@
               <ul>
                 <li> Defining priors for discrete variables with finite bounds
                   is often straight-forward.</li>
-                <li>Principle of indifference.</li>
-                <li>For discrete variables representing the number
+                <li class="fragment">Principle of indifference.</li>
+                <li class="fragment">E.g. for discrete variables representing the number
                   of events that occur in a given interval, a Poissonian distribution may be
                   appropriate.</li>
               </ul>
@@ -383,18 +387,18 @@
 
             <p>For a continuous variable $a&lt;x&lt;b$, sensible priors may include</p>
             <ul>
-              <li>The uniform distribution $f(x)=1/(b-a)$,</li>
-              <li>A Beta distribution, $f(x)\propto(x-a)^{\alpha-1}(b-x)^{\beta-1}$</li>
+              <li class="fragment">The uniform distribution $f(x)=1/(b-a)$,</li>
+              <li class="fragment">A Beta distribution, $f(x)\propto(x-a)^{\alpha-1}(b-x)^{\beta-1}$</li>
             </ul>
 
-            <p>For a rate variable $\lambda&gt;0$,</p>
+            <p class="fragment">For a rate variable $\lambda&gt;0$,</p>
             <ul>
-              <li>May fix $f(\lambda)=c$ to indicate complete ignorance</li>
+              <li class="fragment">May fix $f(\lambda)=c$ to indicate complete ignorance</li>
               <ul>
-                <li>But this is probably not what you want!</li>
-                <li>Places almost all probability on large values.</li>
+                <li class="fragment">But this is probably not what you want!</li>
+                <li class="fragment">Places almost all probability on large values.</li>
               </ul>
-              <li>$f(\lambda)=1/\lambda$ is a better choice (uniform in log-space)</li>
+              <li class="fragment">$f(\lambda)=1/\lambda$ is a better choice (uniform in log-space)</li>
 
             </ul>
 
@@ -408,13 +412,13 @@
               normalized on the domain of $\lambda$?<br>
             </blockquote>
 
-            <img style="width:100%" data-src="uniform_improper.png">
+            <img class="fragment" style="width:100%" data-src="uniform_improper.png">
 
-            <blockquote style="width:100%">We can't! This $f(\lambda)$
+            <blockquote class="fragment" style="width:100%">We can't! This $f(\lambda)$
             is not a true probability density.</blockquote>
 
-            It turns out that this is usually okay, <b>provided the
-              likelihood causes the posterior to be normalizable</b>.
+            <p class="fragment">It turns out that this is usually okay, <b>provided the
+              likelihood causes the posterior to be normalizable</b>.</p>
           </section>
 
           <section>
@@ -422,26 +426,26 @@
             However, for weak data sets improper priors can cause problems.
             It is important to remember that
             <ul>
-              <li>One almost never knows absolutely nothing.</li>
-              <li>Upper and lower bounds can almost always be placed.</li>
-              <li>The log-normal prior can be considered a normalizable replacement for
+              <li class="fragment">One almost never knows absolutely nothing.</li>
+              <li class="fragment">Upper and lower bounds can almost always be placed.</li>
+              <li class="fragment">The log-normal prior can be considered a normalizable replacement for
               the $1/x$ prior.</li>
             </ul>
 
-            <img style="width:100%" data-src="lognormal.png">
+            <img class="fragment" style="width:100%" data-src="lognormal.png">
 
           </section>
 
           <section>
             <h3>Which prior is best?</h3>
 
-            <blockquote class="alert" style="text-align:center;margin-top:150px;margin-bottom:50px">
+            <blockquote class="fragment alert" style="text-align:center;margin-top:150px;margin-bottom:50px">
               Only the person doing the analysis can answer this!
             </blockquote>
 
-            Priors encapsulate expert knowledge (or its absence).
-            This is your opportunity to contribute your hard-won
-            expertise to the analysis.
+            <p class="fragment">Priors encapsulate expert knowledge (or its absence).
+              This is your opportunity to contribute your hard-won
+              expertise to the analysis.</p>
           </section>
         </section>
 
@@ -455,12 +459,12 @@
 
             For probability distributions/densities of a single
             variable, it is often useful to summarize the uncertainty
-            in the value using an interval. For Bayesians this is the
+            in the value using an interval. This is the
             95% credible interval:
 
-            <img style="width:100%" data-src="credible_interval.png">
+            <img class="fragment" style="width:100%" data-src="credible_interval.png">
 
-            Here the interval is $[0.41, 0.91]$.
+            <p class="fragment">Here the interval is $[0.41, 0.91]$.</p>
 
             <aside class="notes">
               What happens when distributions are bimodal?
@@ -478,22 +482,22 @@
           <section>
             <h3>What's so difficult about this?</h3>
 
-            <blockquote style="text-align:center">
-              One word: integration.
+            <blockquote class="fragment" style="text-align:center">
+              INTEGRATION
             </blockquote>
 
-            Bayes' theorem has a troublesome denominator:
+            <p class="fragment">Bayes' theorem has a troublesome denominator:
             $$
             P(\theta_M|D,M)=\frac{P(D|\theta_M,M)P(\theta_M|M)}{P(D|M)}
-            $$
-            The quantity $P(D|M)$ is a normalizing constant, which is the
+            $$</p>
+            <p class="fragment">The quantity $P(D|M)$ is a normalizing constant, which is the
             result of integrating the numerator over all $\theta_M$:
-            $$P(D|M)=\int P(D|\theta_M,M)P(\theta_M|M)d\theta_M$$
+            $$P(D|M)=\int P(D|\theta_M,M)P(\theta_M|M)d\theta_M$$</p>
 
-            <ul>
-              <li>Unless you're <b>very</b> lucky, you can't do this
+            <ul style="margin-top:-20px">
+              <li class="fragment">Unless you're <b>very</b> lucky, you can't do this
               integral with pen and paper.</li>
-              <li>If $\theta_M$ has many dimensions, you can't even do
+              <li class="fragment">If $\theta_M$ has many dimensions, you can't even do
               this using a computer.</li>
             </ul>
           </section>
@@ -522,7 +526,7 @@
               values in order to characterize a probability
               distribution over those values.</p>
 
-            <p style="padding-top:50px">Usually, the algorithms we
+            <p class="fragment" style="padding-top:50px">Usually, the algorithms we
               deal with seek to produce an arbitrary number of
               independent samples of $\theta_M$ drawn from the
               posterior distribution $P(\theta_M|D,M)$.</p>
@@ -572,13 +576,13 @@
 
             <img style="float:right;width:40%" data-src="curse.svg">
 
-            <blockquote style="float:left;width:50%">
+            <blockquote class="fragment" style="float:left;width:50%">
               In general, the fraction of an enclosing distribution
               occupied by a target distribution diminishes rapidly
               as the number of dimensions increases.
             </blockquote>
 
-            <p style="clear:both;text-align:center;margin-top:100px">
+            <p class="fragment" style="clear:both;text-align:center;margin-top:100px">
               This means that for problems with large numbers of unknown parameters,
               rejection sampling will only ever produce rejects!</p>
           </section>
@@ -629,9 +633,9 @@
 
             <ul>
               <li>Adjacent MCMC samples for $x$ are <b>correlated</b>.</li>
-              <li>In the limit of an infinite number of steps between a pair
+              <li class="fragment">In the limit of an infinite number of steps between a pair
               of samples, they will be independent draws.</li>
-              <li>The first state of the MCMC chain is chosen
+              <li class="fragment">The first state of the MCMC chain is chosen
               arbitrarily - it is not a draw from the
               posterior.</li>
             </ul>
@@ -643,12 +647,12 @@
             <h3>What determines convergence and mixing rates?</h3>
 
             <ul>
-              <li>Convergence is affected by the starting state.</li>
-              <li>Convergence and mixing are affected by</li>
+              <li class="fragment">Convergence is affected by the starting state.</li>
+              <li class="fragment">Convergence and mixing are affected by</li>
               <ul>
-                <li>Proposals: how big are the steps in the random
+                <li class="fragment">Proposals: how big are the steps in the random
                 walk? What direction are they in?</li>
-                <li>The target density: multiple modes cause havoc!</li>
+                <li class="fragment">The target density: multiple modes cause havoc!</li>
               </ul>
             </ul>
 
@@ -661,13 +665,13 @@
             compare the results of distinct chains generated from
             independently selected initial conditions.
 
-            <img style="float:right;width:45%" data-src="MCMC_convergence_testing.png">
+            <img class="fragment" style="float:right;width:45%" data-src="MCMC_convergence_testing.png">
 
             <div style="width:50%;margin-top:50px">
               <ul>
-                <li>Once satisfied, chains can be combined.</li>
-                <li>Can run at the same time on a cluster.</li>
-                <li>Doesn't necessarily prove convergence!</li>
+                <li class="fragment">Once satisfied, chains can be combined.</li>
+                <li class="fragment">Can run at the same time on a cluster.</li>
+                <li class="fragment">Doesn't necessarily prove convergence!</li>
               </ul>
             </div>
           </section>
@@ -676,11 +680,11 @@
             <h3>Assessing Mixing</h3>
 
             The key to assessing mixing is the autocorrelation function of the chain states:
-            <img style="width:100%" data-src="MCMC_acf.png">
+            <img class="fragment" style="width:100%" data-src="MCMC_acf.png">
 
-            The number of steps required for this function to decay to
-            within the vicinity of 0 is the gap between effectively independent samples,
-            $\tau$.
+            <p class="fragment">The number of steps required for this function to decay to
+              within the vicinity of 0 is the gap between effectively independent samples,
+              $\tau$.</p>
           </section>
 
           <section>
@@ -690,10 +694,10 @@
             $$N_{\text{eff}}=\frac{N}{\tau}$$
             to be the <b>effective sample size</b> (ESS).
 
-            <p>The ESS is a rough <i>estimate</i> of the number of actual
+            <p class="fragment">The ESS is a rough <i>estimate</i> of the number of actual
             samples a chain has generated.</p>
 
-            <blockquote>You should really only
+            <blockquote class="fragment">You should really only
             consider the order of magnitude of the ESS.</blockquote>
           </section>
         </section>
