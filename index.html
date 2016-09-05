@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>mEpiLab BEAST Workshop</title>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../workshop_theme.css">
+    <!--link rel="stylesheet" href="../../../talks/web_based/WinterBootcamp/wb_theme.css"-->
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+          <section>
+              <h2>mEpiLab BEAST Workshop, 2016</h2>
+
+              These are the links to the slides presented at the workshop:
+              <ul>
+                  <li><a href="http://tgvaughan.github.com/mEpiLabWorkshop/Bayesian_Inference">Bayesian Inference</li>
+                  <li><a href="http://tgvaughan.github.com/mEpiLabWorkshop/Statistical_Phylogenetics">Statistical Phylogenetics</li>
+                  <li><a href="http://tgvaughan.github.com/mEpiLabWorkshop/BEAST">BEAST and Friends</li>
+                  <li><a href="http://tgvaughan.github.com/mEpiLabWorkshop/Tutorials">Tutorials</li>
+              </ul>
+          </section>
+      </div>
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      center: false,
+
+      transition: 'convex',
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+      { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../reveal.js/plugin/notes/notes.js', async: true },
+      { src: '../reveal.js/plugin/math/math.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>
